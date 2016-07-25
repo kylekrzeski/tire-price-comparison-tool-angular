@@ -39,7 +39,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: ['newer:jshint:all', 'newer:jscs'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
+          'app/scripts/{,*/}*.js'
         ]
       },
       test: {
@@ -136,6 +136,13 @@ module.exports = function (grunt) {
         },
         src: ['test/spec/{,*/}*.js']
       }
+    },
+
+    jscs: {
+      options: {
+        config: '.jscsrc'
+      },
+      src: ['<%= yeoman.app %>/scripts/{,*/}*.js']
     },
 
     // Empties folders to start fresh
@@ -451,6 +458,7 @@ module.exports = function (grunt) {
     'cdnify',
     'cssmin',
     'uglify',
+    'jshint:all',
     'filerev',
     'usemin',
     'htmlmin'

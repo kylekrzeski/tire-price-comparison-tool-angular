@@ -20,11 +20,13 @@ angular.module('tirellamaApp')
     ];
 
     $scope.makes = [
-
+      'Ford',
+      'Honda'
     ];
 
     $scope.models = [
-
+      'Escort ZX2',
+      'CRV'
     ];
 
   }]);
